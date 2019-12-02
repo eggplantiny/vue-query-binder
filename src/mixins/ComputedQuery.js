@@ -6,7 +6,9 @@ let stringToDynamicValue = (str) => {
     }
 }
 
-export default function createComputedQuery ({ prefix = '', suffix = '' } = { prefix: '', suffix: '' }) {
+export default function createComputedQuery (
+    { prefix = '', suffix = '', overwrite = false } =
+        { prefix: '', suffix: '', overwrite: false }) {
     return {
         beforeCreate () {
             if (this.$options.computed === undefined) {
@@ -15,7 +17,13 @@ export default function createComputedQuery ({ prefix = '', suffix = '' } = { pr
 
             if (this.$route !== undefined) {
                 Object.keys(this.$route.query).forEach(key => {
-                    this.$options.computed[`${prefix}${key}${suffix}`] = () => stringToDynamicValue(this.$route.query[key])
+                    const generatedKey = `${prefix}${key}${suffix}`
+
+                    if (this.$options.computed[generatedKey] !== undefined && overwrite === false) {
+                        return
+                    }
+
+                    this.$options.computed[generatedKey] = () => stringToDynamicValue(this.$route.query[key])
                 })
             }
         }

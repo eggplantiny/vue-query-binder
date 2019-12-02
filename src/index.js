@@ -1,7 +1,8 @@
 import ComputedQuery  from './mixins/ComputedQuery'
 
 function install(Vue, options) {
-    Vue.mixin(ComputedQuery(options))
+    const mixin = ComputedQuery(options)
+    Vue.mixin(mixin)
 }
 
 export default {

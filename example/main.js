@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-import ComputedQuery from "../src"
+import ComputedQuery from '../src'
 
 import HelloWorld from "./components/HelloWorld"
 
+Vue.use(ComputedQuery)
 Vue.use(VueRouter)
-Vue.use(ComputedQuery, { prefix: 'fucking_', suffix: '_world' })
 
 const routes = [
   { path: '/index', component: HelloWorld },
