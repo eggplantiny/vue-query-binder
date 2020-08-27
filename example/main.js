@@ -1,11 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-import ComputedQuery from '../src'
 
 import HelloWorld from "./components/HelloWorld"
 
-Vue.use(ComputedQuery)
 Vue.use(VueRouter)
 
 const routes = [

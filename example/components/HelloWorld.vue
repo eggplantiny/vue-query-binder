@@ -6,12 +6,12 @@
 
 <script>
 
-// import ComputedQuery from '../../src/mixins/ComputedQuery'
-// const computedQuery = new ComputedQuery({ prefix: 'hello_', suffix: '_world' })
+import ComputedQuery from '../../src/mixins/ComputedQuery'
+const computedQuery = new ComputedQuery({ prefix: 'generated_', suffix: '' })
 
 export default {
   name: 'HelloWorld',
-  // mixins: [computedQuery],
+  mixins: [computedQuery],
   computed: {
     hello () {
       return 'Hello World'
@@ -20,6 +20,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 </style>
